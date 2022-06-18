@@ -2357,6 +2357,7 @@ export default class Client4 {
 
         if (!this.enableLogging) {
             throw new ClientError(this.getUrl(), {
+                name: 'ClientError',
                 message: 'Logging disabled.',
                 url,
             });
@@ -3980,6 +3981,7 @@ export default class Client4 {
             data = await response.json();
         } catch (err) {
             throw new ClientError(this.getUrl(), {
+                name: 'ClientError',
                 message: 'Received invalid response from the server.',
                 intl: {
                     id: 'mobile.request.invalid_response',
@@ -4018,6 +4020,7 @@ export default class Client4 {
         }
 
         throw new ClientError(this.getUrl(), {
+            name: 'ClientError',
             message: msg,
             server_error_id: data.id,
             status_code: data.status_code,
